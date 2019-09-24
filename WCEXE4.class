@@ -1,0 +1,26 @@
+package rgzyone;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import java.awt.*;
+import javax.swing.*;
+import java.lang.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class WCEXE4 {
+  public static void WCexe4(String filename) {
+	  File file =new File (filename);
+	  if(file.exists()&&file.isDirectory()) {
+		  File[] childFiles =file.listFiles();
+		  String path = file.getAbsolutePath();
+		  for(File childFile : childFiles) {
+			  if(childFile.isFile()) {
+				  WCEXE1.WCexe1(filename);
+				  WCEXE2.WCexe2(filename);
+				  WCEXE3.WCexe3(filename);
+			  }
+		  }
+	  }
+  }
+}
