@@ -1,0 +1,33 @@
+package rgzyone;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import java.awt.*;
+import javax.swing.*;
+import java.lang.*;
+public class WCEXE3 {
+    public static void WCexe3(String filename) {
+    	BufferedReader br =null;
+    	File file = new File(filename);
+    try {
+    	br = new BufferedReader(new FileReader(file));
+    	System.out.println("The number of line in"+filename+ "is");
+        String contentLine =" ";
+    	contentLine =br.readLine();
+    	int linenum=0;
+    	while (contentLine !=null ) {
+    		linenum++;
+    		break;
+    	}
+    	System.out.println(linenum);
+    }catch (IOException ioe) {
+    	ioe.printStackTrace();
+    }finally {
+    	try { if(br!=null)
+    		br.close();
+    	}catch (IOException e) {
+    	System.out.println("Close BufferedReader error"+e);
+                       }
+             }
+      }
+}
