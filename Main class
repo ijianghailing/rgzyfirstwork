@@ -1,0 +1,35 @@
+package rgzyone;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import java.awt.*;
+import javax.swing.*;
+import java.lang.*;
+
+public class Mainclass {
+     public static void main(String [] args) {
+    	 System.out.println("Welcome!");
+    	 switch(args[1]) {
+    	 case "-c":
+    		 WCEXE1.WCexe1(args[2]);
+    		 break;
+    	 case "-w":
+    		 WCEXE2.WCexe2(args[2]);
+    		 break;
+    	 case "-l":
+    		 WCEXE3.WCexe3(args[2]);
+    		 break;
+    	 case "-s":
+    		 WCEXE4.WCexe4(args[3]);
+    		 break;
+    	 case "-a":
+    		 WCEXE5.WCexe5(args[2]);
+    		 break;
+    	 case "-x":
+    		 WCEXE6.WCexe6(args[2]);
+    		 break;
+    	 default:System.out.println("The format you entered is incorrected.");
+    	 break;
+    	 }
+     }
+}
