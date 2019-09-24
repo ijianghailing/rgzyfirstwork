@@ -1,0 +1,73 @@
+package rgzyone;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import java.awt.*;
+import javax.swing.*;
+import java.lang.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class WCEXE5 {
+	public static void WCexe5(String filename) {
+    	BufferedReader br =null;
+    try {
+    	br = new BufferedReader(new FileReader("C:\\Users\\14305\\source\\rgzytext1"));
+        String contentLine =" ";
+    	contentLine =br.readLine();
+    	int codenum=0;
+    	int blanknum =0;
+    	int commentnum =0;
+    	int temp=0;
+    	int count=0;
+    	Pattern pblank =Pattern.compile("\\s*");
+    	Matcher mblank = pblank.matcher(contentLine);
+    	Pattern pcomment1 =Pattern.compile("\\s*/{2}.*");
+    	Matcher mcomment1 = pblank.matcher(contentLine);
+    	Pattern pcomment2 =Pattern.compile("\\s*/\\x2A.*");
+    	Matcher mcomment2 = pblank.matcher(contentLine);
+    	Pattern pcomment3 =Pattern.compile("\\s*\\x2A/.*");
+    	Matcher mcomment3 = pblank.matcher(contentLine);
+    	while (contentLine !=null ) {
+    		count++;
+    		while (mblank.find()) {
+    			blanknum++;
+    			break;
+    		}
+    		while(mcomment1.find()) {
+    			commentnum++;
+    			break;
+    		}
+    		if(temp==0) {
+    			while (mcomment2.find()) {
+    				temp++;
+    				break;
+    			}
+    		}
+    		if(temp!=0) {
+    			while(mcomment3.find())
+    			{
+    				temp++;
+    				commentnum=commentnum+temp;
+    				temp=0;
+    				}
+    			}
+    	}
+    	codenum=count-blanknum-commentnum;
+    	System.out.println(filename+"\n  The number of code  is"+codenum);
+    	System.out.println(filename+"\n  The number of blank is"+blanknum);
+    	System.out.println(filename+"\n  The number of blank is"+commentnum);
+    }catch (IOException ioe) {
+    	ioe.printStackTrace();
+    }finally {
+    	try { if(br!=null)
+    		br.close();
+    	}catch (IOException e) {
+    	System.out.println("Close BufferedReader error"+e);
+                       }
+             }
+      }
+}
