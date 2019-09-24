@@ -1,0 +1,32 @@
+package rgzyone;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import java.awt.*;
+import javax.swing.*;
+import java.lang.*;
+public class WCEXE1 {
+    public static void WCexe1(String filename) {
+    	BufferedReader br =null;
+    try {
+    	br = new BufferedReader(new FileReader("C:\\Users\\14305\\source\\rgzytext1"));
+    	System.out.println("The number of characters in"+filename+ "is");
+        String contentLine =" ";
+    	contentLine =br.readLine();
+    	int charnum=0;
+    	while (contentLine !=null ) {
+    		charnum =charnum +contentLine.length();
+    		contentLine=br.readLine();
+    	}
+    	System.out.println(charnum);
+    }catch (IOException ioe) {
+    	ioe.printStackTrace();
+    }finally {
+    	try { if(br!=null)
+    		br.close();
+    	}catch (IOException e) {
+    	System.out.println("Close BufferedReader error"+e);
+                       }
+             }
+      }
+}
