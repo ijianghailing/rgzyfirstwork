@@ -1,0 +1,35 @@
+package rgzyone;
+import java.util.*;
+import java.math.*;
+import java.io.*;
+import java.awt.*;
+import javax.swing.*;
+import java.lang.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class WCEXE2 {
+     public static void WCexe2(String filename) {
+    	 BufferedReader br =null;
+    	 try {
+    		 br =new BufferedReader (new FileReader("C:\\Users\\14305\\source\\rgzytext1"));
+    		 System.out.println("The number of word in"+filename+"is");
+    		 String contentLine ="";
+    		 contentLine = br.readLine();
+    		 int wordnum =0;
+    		 Pattern p=Pattern.compile("\\b[a-zA-Z]+\\b");
+    		 Matcher m =p.matcher(contentLine);
+    		 while (m.find())
+    			 wordnum++;
+    		 System.out.println(wordnum);
+    	 }catch (IOException ioe) {
+    	    	ioe.printStackTrace();
+    	    }finally {
+    	    	try { if(br!=null)
+    	    		br.close();
+    	    	}catch (IOException e) {
+    	    	System.out.println("Close BufferedReader error"+e);
+    	                       }
+    	    }
+     }
+}
